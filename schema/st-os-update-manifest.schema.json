@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/harduprakusuma-crypto/ST-OS---UPDATES/schema/st-os-update-manifest.schema.json",
+  "title": "ST OS Update Manifest",
+  "type": "object",
+  "required": ["schema","product","version","type","payload_url","payload_sha256"],
+  "properties": {
+    "schema": { "const": 1 },
+    "product": { "const": "ST OS" },
+    "version": { "type": "string", "minLength": 1 },
+    "type": { "const": "deb" },
+    "payload_url": { "type": "string", "format": "uri" },
+    "payload_sha256": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "payload_name": { "type": "string" },
+    "payload_size": { "type": "integer", "minimum": 1 },
+    "notes_url": { "type": "string" },
+    "source_commit": { "type": "string" },
+    "created_utc": { "type": "string" }
+  },
+  "additionalProperties": true
+}
